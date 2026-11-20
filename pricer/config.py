@@ -16,7 +16,7 @@ OUTPUT_DIR = PROJECT_ROOT / "output"
 
 # Dataset Settings
 DATASET_SOURCE = "McAuley-Lab/Amazon-Reviews-2023"
-DEFAULT_HF_USER = os.environ.get("HF_USER", "ed-donner")
+DEFAULT_HF_USER = os.environ.get("HF_USER", "Aksh10")
 DEFAULT_LITE_DATASET = f"{DEFAULT_HF_USER}/items_lite"
 DEFAULT_FULL_DATASET = f"{DEFAULT_HF_USER}/items_full"
 DEFAULT_PROMPT_LITE = f"{DEFAULT_HF_USER}/items_prompts_lite"

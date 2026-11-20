@@ -2,7 +2,7 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HuggingFace Hub](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets%20%26%20Models-orange)](https://huggingface.co/ed-donner)
+[![HuggingFace Hub](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets%20%26%20Models-orange)](https://huggingface.co/Aksh10)
 
 An end-to-end Machine Learning and Generative AI system that predicts e-commerce product retail prices directly from titles, descriptions, and feature specifications.
 
@@ -169,19 +169,19 @@ Open [http://localhost:7860](http://localhost:7860) in your browser.
 
 #### Train Classical Machine Learning Baselines:
 ```bash
-python -m pricer.training.train_ml --dataset "ed-donner/items_lite" --size 200
+python -m pricer.training.train_ml --dataset "Aksh10/items_lite" --size 200
 ```
 
 #### Train PyTorch Deep Residual Neural Network:
 ```bash
-python -m pricer.training.train_dnn --dataset "ed-donner/items_lite" --epochs 5
+python -m pricer.training.train_dnn --dataset "Aksh10/items_lite" --epochs 5
 ```
 
 #### Train 4-bit QLoRA Adapter (Llama 3.2 3B):
 ```bash
 python -m pricer.training.train_qlora \
     --base_model "meta-llama/Llama-3.2-3B" \
-    --dataset "ed-donner/items_prompts_lite" \
+    --dataset "Aksh10/items_prompts_lite" \
     --lite_mode \
     --epochs 1 \
     --batch_size 16
@@ -191,12 +191,12 @@ python -m pricer.training.train_qlora \
 
 ### 3. Evaluate Any Model
 
-Run the evaluation harness against the holdout test set:
+Run the evaluation harness against the holdout test set using your fine-tuned model:
 
 ```bash
 python scripts/evaluate_model.py \
     --base_model "meta-llama/Llama-3.2-3B" \
-    --adapter_path "your-hf-username/price-run-name" \
+    --adapter_path "Aksh10/price-detector-llama-3.2-3b" \
     --test_size 200
 ```
 

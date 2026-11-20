@@ -56,6 +56,13 @@ def estimate_price(title: str, category: str, brand: str, description: str, feat
         pred = lr_model.predict(item)
     elif model_choice == "NLP + Ridge Regression (Bag-of-Words)" and models_ready:
         pred = nlp_model.predict(item)
+    elif "Fine-Tuned Llama" in model_choice:
+        try:
+            from pricer.models.qlora_model import QLoRAPricer
+            pricer = QLoRAPricer(adapter_path="Aksh10/price-detector-llama-3.2-3b")
+            pred = pricer(item)
+        except Exception as e:
+            return f"Error loading adapter: {e}"
     elif "Frontier LLM" in model_choice:
         if not os.environ.get("OPENAI_API_KEY") and not os.environ.get("GROQ_API_KEY"):
             return "Error: Frontier model selected but no OPENAI_API_KEY or GROQ_API_KEY set in .env"
@@ -105,12 +112,13 @@ def create_demo():
                 model_dropdown = gr.Dropdown(
                     label="Model Selection",
                     choices=[
+                        "Fine-Tuned Llama 3.2 3B (QLoRA)",
                         "NLP + Ridge Regression (Bag-of-Words)",
                         "Linear Regression (Metadata)",
                         "Constant Pricer (Mean)",
                         "Frontier LLM (GPT-5 Nano)",
                     ],
-                    value="NLP + Ridge Regression (Bag-of-Words)",
+                    value="Fine-Tuned Llama 3.2 3B (QLoRA)",
                 )
                 submit_btn = gr.Button("Predict Price 💰", variant="primary")
 

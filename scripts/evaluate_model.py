@@ -33,13 +33,13 @@ def parse_args():
     parser.add_argument(
         "--adapter_path",
         type=str,
-        default=None,
+        default="Aksh10/price-detector-llama-3.2-3b",
         help="Path or HuggingFace ID for trained LoRA adapter",
     )
     parser.add_argument(
         "--dataset_name",
         type=str,
-        default="ed-donner/items_prompts_lite",
+        default="Aksh10/items_prompts_lite",
         help="Dataset with test split",
     )
     parser.add_argument(

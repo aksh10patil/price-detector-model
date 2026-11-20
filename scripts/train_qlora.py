@@ -33,13 +33,13 @@ def parse_args():
     parser.add_argument(
         "--hf_user",
         type=str,
-        default=os.environ.get("HF_USERNAME", "my-hf-user"),
+        default=os.environ.get("HF_USER", "Aksh10"),
         help="Hugging Face username for pushing adapter",
     )
     parser.add_argument(
         "--dataset_name",
         type=str,
-        default="ed-donner/items_prompts_lite",
+        default="Aksh10/items_prompts_lite",
         help="Hugging Face dataset name with prompt/completion splits",
     )
     parser.add_argument("--lite_mode", action="store_true", default=False, help="Use lite hyperparameters")

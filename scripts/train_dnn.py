@@ -19,8 +19,8 @@ def parse_args():
     parser.add_argument(
         "--dataset",
         type=str,
-        default="ed-donner/items_lite",
-        help="Hugging Face dataset identifier (e.g., ed-donner/items_lite or ed-donner/items_full)",
+        default="Aksh10/items_lite",
+        help="Hugging Face dataset identifier (e.g., Aksh10/items_lite or Aksh10/items_full)",
     )
     parser.add_argument("--epochs", type=int, default=5, help="Number of training epochs")
     parser.add_argument("--val_size", type=int, default=1000, help="Validation set size")
